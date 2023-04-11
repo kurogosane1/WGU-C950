@@ -13,6 +13,7 @@ with open('./data/addressData.csv') as csvfile_2:
         return address_data_csv
 
     # Now to calculate the total distance from each row and column in the distance csv
+    #get_distance
     def getDistance(row, col, total):
         distance = distance_data_csv[row][col]
         # incase the row is blank but distance can be found from the column
@@ -22,6 +23,7 @@ with open('./data/addressData.csv') as csvfile_2:
         return total + float(distance)
     
     # Now we need to calculate the distance from the current location
+    # get_current_distance
     def currentlyTravelled(row, col):
         distance = distance_data_csv[row][col]
         if distance =='':
@@ -30,7 +32,8 @@ with open('./data/addressData.csv') as csvfile_2:
         return distance
 
     #Calculate the total distance a truck has travelled
-    def get_truck_Distance(distance,truckData):
+    # get_time
+    def get_truck_time(distance,truckData):
         new_time = distance / 18
         dist_min = '{0:02.0f}:{1:02.0f}'.format(
             *divmod(new_time * 60, 60))
