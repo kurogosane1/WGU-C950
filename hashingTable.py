@@ -60,7 +60,14 @@ class HashingTable:
                     return True
             return False
         
-       
+    # Get a value from Hash table
+    def get_value(self, key):
+        hashKey = self.create_hash_key(key)
+        if self.table[hashKey]!= None:
+            for pair in self.table[hashKey]:
+                if pair[0] == key:
+                    return pair[1]
+        return None
 
 # myHash = HashingTable();
 # myHash.insert("John")
