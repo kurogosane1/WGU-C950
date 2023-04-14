@@ -1,12 +1,12 @@
 import csv
-from hashingTable import HashTable
+from hashingTable import HashingTable
 
 # Read the CSV files
 with open('./data/package.csv') as csvFile:
         read_csv= csv.reader(csvFile, delimiter=",")
 
         #Creating an instance of the hash table
-        myHash = HashTable()
+        myHash = HashingTable()
         # first truck delivery
         firstTruckDelivery = []
         # second truck delivery
@@ -28,7 +28,7 @@ with open('./data/package.csv') as csvFile:
             address_location = ''
             delivery_status = 'At hub'
 
-            value= [id,address,city,state,zip,delivery,size,note,delivery_start,address_location,delivery_status]
+            value= [id, address_location,address,city,state,zip,delivery,size,note,delivery_start,delivery_status]
 
             # Categorization of packages status that can then placed in nested lists for quick indexing
             
@@ -48,7 +48,7 @@ with open('./data/package.csv') as csvFile:
             # Check remaining packages
             if value not in firstTruckDelivery and value not in secondTruckDelivery and value not in finalTruckDelivery:
                  secondTruckDelivery.append(value) if len(secondTruckDelivery) < len(finalTruckDelivery) else finalTruckDelivery.append(value)
-
+          
             # Insert value into the hash table
             myHash.insert(id, value)
 
@@ -59,7 +59,7 @@ with open('./data/package.csv') as csvFile:
         # Get packages on the first delivery 
         def get_firstDeliver():
              return firstTruckDelivery
-
+        
         # Get packages on the second truck on deliver
         def get_secondDeliver():
              return secondTruckDelivery

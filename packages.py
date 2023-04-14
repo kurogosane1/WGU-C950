@@ -20,20 +20,18 @@ for index, value in enumerate(data_reading.get_firstDeliver()):
     data_reading.get_firstDeliver()[index][9] = first_truck_leave_time[0]
     first_delivery.append(data_reading.get_firstDeliver()[index])
 
+
 # Now we will compare the truck address to the address lists 
 for index, outer in enumerate(first_delivery):
-    print("This is to see the outer")
-    print(outer)
-    print("This is to see the inner")
-    print(inner)
     for inner in distance.get_address_data():
         if outer[2] == inner[2]:
-            first_truck_distance.append[outer[0]]
+            first_truck_distance.append(outer[0])
             first_delivery[index][1] = inner[0]
     
 # Calling algorithm to sort packages for the first truck
-distance.shortest_route(first_delivery,1,0)
-total_distance_T1 =0
+# print(f'this is the first deliver row 33 {first_delivery}')
+distance.shortest_route(first_delivery, 1, 0)
+total_distance_T1 = 0
 
 # Calculating the total distance of the first truck and distance of each package
 for index in range(len(distance.first_truck_index())):
@@ -47,17 +45,21 @@ for index in range(len(distance.first_truck_index())):
 
 # Set delivery_start to second_truck_leave_time for all truck 2 packages
 for index, value in enumerate(data_reading.get_secondDeliver()):
+    # print(f'This is the secondDeliver {data_reading.get_secondDeliver()[index]}')
+    # print(f'This is the second truck leave time {second_truck_leave_time[0]}')
     data_reading.get_secondDeliver()[index][9] = second_truck_leave_time[0]
-    second_delivery.append(data_reading.get_secondDeliver[index])
+    second_delivery.append(data_reading.get_secondDeliver()[index])
 
  # Compare truck twos address to the address list in the address list
 for index, outer in enumerate(second_delivery):
     for inner in distance.get_address_data():
         if outer[2] == inner[2]:
+            print(f'this is line 57 {outer[0]}')
             second_truck_distance.append(outer[0])
             second_delivery[index][1] = inner[0]
 
 # Calling function to sort packages for the second truck
+# print(f'this is the second delivery {second_delivery}')
 distance.shortest_route(second_delivery,2,0)
 total_distance_T2 = 0
 

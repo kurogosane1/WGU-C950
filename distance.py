@@ -1,12 +1,12 @@
 import csv
 import datetime
-from hashingTable import HashTable
+from hashingTable import HashingTable
 
 # Read CSV files and add to a list
 with open('./data/distance.csv') as csvfile_1:
-    distance_data_csv = csv.reader(csvfile_1,delimiter=',')
+    distance_data_csv = list(csv.reader(csvfile_1,delimiter=','))
 with open('./data/addressData.csv') as csvfile_2:
-    address_data_csv = csv.reader(csvfile_2,delimiter=',')
+    address_data_csv = list(csv.reader(csvfile_2,delimiter=','))
 
     # Now to get pacakge address data 
     def get_address_data():
@@ -79,13 +79,14 @@ with open('./data/addressData.csv') as csvfile_2:
         location = 0
 
         for i in dataList:
-            value = int(i[1])
-            if currentlyTravelled(cur_location, int(i[1]) <= lowest_distance):
+            value = int(float(i[1]))   
+            if currentlyTravelled(cur_location, value) <= lowest_distance:
                 lowest_distance = currentlyTravelled(cur_location, value)
                 location = value
         
         for i in dataList:
-            if currentlyTravelled(cur_location, int(i[1]) == lowest_distance):
+            value = int(float(i[1]))
+            if currentlyTravelled(cur_location, value) == lowest_distance:
                 if num ==1:
                     first_truck.append(i)
                     first_truck_indexs.append(i[1])
@@ -111,20 +112,20 @@ with open('./data/addressData.csv') as csvfile_2:
         third_truck_indexs.insert(0,'0')
 
         # The following are helpers functions to return the required truck lists above
-        def first_truck_index():
-            return first_truck_indexs
+    def first_truck_index():
+        return first_truck_indexs
         
-        def first_truck_lists():
-            return first_truck
+    def first_truck_lists():
+        return first_truck
         
-        def second_truck_index():
-            return second_truck_indexs
+    def second_truck_index():
+        return second_truck_indexs
         
-        def second_truck_lists():
-            return second_truck
+    def second_truck_lists():
+        return second_truck
         
-        def third_truck_index():
-            return third_truck_indexs
+    def third_truck_index():
+        return third_truck_indexs
         
-        def third_truck_lists():
-            return third_truck
+    def third_truck_lists():
+        return third_truck
