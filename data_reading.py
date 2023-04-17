@@ -33,7 +33,7 @@ with open('./data/package.csv') as csvFile:
             # Categorization of packages status that can then placed in nested lists for quick indexing
             
             # To correct package details that were listed incorrectly
-            if "10:30" not in value[6] and "84104" in value[5]:
+            if "84104" in value[5] and"10:30" not in value[6]:
                 finalTruckDelivery.append(value)
             
             # First Trucks delivery
@@ -52,7 +52,7 @@ with open('./data/package.csv') as csvFile:
             # Insert value into the hash table
             myHash.insert(id, value)
 
-        # Get the list of all packages
+        # Get the list of all packages¬
         def getAllPackages():
              return myHash  
 

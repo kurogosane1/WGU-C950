@@ -29,7 +29,7 @@ with open('./data/addressData.csv') as csvfile_2:
         if distance =='':
             distance = distance_data_csv[col][row]
         
-        return distance
+        return float(distance)
 
     #Calculate the total distance a truck has travelled
     # get_time
@@ -79,30 +79,30 @@ with open('./data/addressData.csv') as csvfile_2:
         location = 0
 
         for i in dataList:
-            value = int(float(i[1]))   
+            value = int(i[1])
             if currentlyTravelled(cur_location, value) <= lowest_distance:
                 lowest_distance = currentlyTravelled(cur_location, value)
                 location = value
         
         for i in dataList:
-            value = int(float(i[1]))
+            value = int(i[1])
             if currentlyTravelled(cur_location, value) == lowest_distance:
                 if num ==1:
                     first_truck.append(i)
                     first_truck_indexs.append(i[1])
-                    dataList.pop(dataList.index(1))
+                    dataList.pop(dataList.index(i))
                     cur_location = location
                     shortest_route(dataList, 1, cur_location)
                 elif num ==2:
                     second_truck.append(i)
                     second_truck_indexs.append(i[1])
-                    dataList.pop(dataList.index(1))
+                    dataList.pop(dataList.index(i))
                     cur_location = location
                     shortest_route(dataList, 2, cur_location)
                 elif num ==3:
                     third_truck.append(i)
                     third_truck_indexs.append(i[1])
-                    dataList.pop(dataList.index[i])
+                    dataList.pop(dataList.index(i))
                     cur_location = location
                     shortest_route(dataList, 3, cur_location)
             
