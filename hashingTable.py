@@ -1,77 +1,64 @@
-#Hashing table
+# Syed Khurshid, SID:010081191
+
 class HashingTable:
-    #Constructor with optional intial capacity parameter
-    # Assigns all buckets with an empty list.
-    def __init__(self, initial_capacity=10):
-        self.table =[]
-        for _ in range(initial_capacity):
+    def __init__(self, capacity=10):
+        self.table = []
+        for _ in range(capacity):
             self.table.append([])
-   
-   # Create hash key -> 0(1)
+
+    # Create hash key -> O(1)
     def create_hash_key(self, key):
         return int(key) % len(self.table)
-    
-    
-    # Inser package into hash table -> 0(n)
-    def insert(self, key, item):
-        key_hash = self.create_hash_key(key)
-        values = [key ,item]
 
-        if self.table[key_hash] == None:
-            self.table[key_hash] = list([values])
+    # Insert package into hash table -> O(n)
+    def insert(self, key, value):
+        hashKey = self.create_hash_key(key)
+        values = [key, value]
+
+        if self.table[hashKey] == None:
+            self.table[hashKey] = list([values])
             return True
-        else: 
-            for pair in self.table[key_hash]:
+        else:
+            for pair in self.table[hashKey]:
                 if pair[0] == key:
-                    pair[1]= values
+                    pair[1] = values
                     return True
-            self.table[key_hash].append(values)
+            self.table[hashKey].append(values)
             return True
-            
-    # Updating packages in table to match 0(1)
-    def update(self, key, item):
-        key_hash = self.create_hash_key(key)
-        if self.table[key_hash] != None:
-            for pair in self.table[key_hash]:
+
+    # Update package in hash table -> O(n)
+    def update(self, key, value):
+        hashKey = self.create_hash_key(key)
+        if self.table[hashKey] != None:
+            for pair in self.table[hashKey]:
                 if pair[0] == key:
-                    pair[1]= item
+                    pair[1] = value
                     return True
         else:
-            print(f'There was an error in update with Key value: {key}')
-                # print()
-    
-    #Searches for an item with matching key in the hash table.
-    #Returns the item if found, or none if not found -> 0(n)
-    def search(self, key):
-        #get the buck list where this key would be.
-        key_hash = self.create_hash_key(key)
-        if self.table[key_hash] != None:
-            for pair in self.table[key_hash]:
-                if pair[0] == key:
-                    return pair[1]
-        return None
-                  
-    #Removes an item with matching key from the hash table
-    def remove(self, key):
-        #get the bucket list where this item will be removed from.
-        key_hash = self.create_hash_key(key)
-        if self.table[key_hash] == None:
-            return False
-        for i in range(0, len(self.table[key_hash])):
-            if self.table[key_hash][i][0] == key:
-                self.table[key_hash].pop(i)
-                return True
-        return False
-        
-    # Get a value from Hash table
+            print('Unsuccessful Key Updation: ' + key)
+
+    # Get a value from hash table -> O(n)
     def get_value(self, key):
         hashKey = self.create_hash_key(key)
-        if self.table[hashKey] is not None:
+        if self.table[hashKey] != None:
             for pair in self.table[hashKey]:
                 if pair[0] == key:
                     return pair[1]
-        else:
-            return None
+        return None
 
-    def get_check(self):
-        return self.table
+    # Delete a value from hash table -> O(n)
+    def remove(self, key):
+        hashKey = self.create_hash_key(key)
+
+        if self.table[hashKey] == None:
+            return False
+        for i in range(0, len(self.table[hashKey])):
+            if self.table[hashKey][i][0] == key:
+                self.table[hashKey].pop(i)
+                return True
+        return False
+
+class HashTableEntry:
+    def __init__(self, key, item):
+        self.key = key
+        self.item = item
