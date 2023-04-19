@@ -58,6 +58,7 @@ def userMenu():
 # First Menu option
 def get_inTime():
     try:
+        print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
         inputTime = input(
             'Enter a time to get all packages till that time\n and enter as (HH:MM:SS): ')
         if inputTime != "Quit" or inputTime != "q" or inputTime != "exit":
@@ -129,6 +130,7 @@ def get_Package_at_time():
         (hrs, mins, secs) = second_time.split(':')
         converted_second_time = datetime.timedelta(
             hours=int(hrs), minutes=int(mins), seconds=int(secs))
+        print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
         input_time = input('Enter a time (HH:MM:SS): ')
         (hrs, mins, secs) = input_time.split(':')
         convert_user_time = datetime.timedelta(
@@ -188,6 +190,7 @@ def get_Package_at_time():
 # Packages by address at a particular time
 def get_address():
     user_input = input("Please input by Delivery Address: ")
+    print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_time = input("Please input the time in HH:MM:SS: ")
 
     if user_input is not "Quit" or not "q" or not "quit":
@@ -257,6 +260,7 @@ def get_address():
 # Get info for packages by city at a particular time
 def get_by_city():
     user_input = input("Please input by city: ")
+    print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_time = input("Please input the time in HH:MM:SS: ")
 
     if user_input is not "Quit" or not "q" or not "quit":
@@ -327,6 +331,7 @@ def get_by_city():
 # Packages by zipcode
 def get_by_zipcode():
     user_input = input("Please input zipcode: ")
+    print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_time = input("Please input the time in HH:MM:SS: ")
 
     if user_input is not "Quit" or not "q" or not "quit":
@@ -397,6 +402,7 @@ def get_by_zipcode():
 # Packages by weight
 def get_by_weight():
     user_input = input("Please input valid weight: ")
+    print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_time = input("Please input the time in HH:MM:SS: ")
 
     if user_input is not "Quit" or not "q" or not "quit":
@@ -467,7 +473,7 @@ def get_by_weight():
 
 # Getting the weight by deadline
 def get_by_deadline():
-
+    print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_time = input("Please input deadline of the package in HH:MM:SS: ")
 
     if user_time is not "Quit" or not "q" or not "quit":
@@ -538,6 +544,7 @@ def get_by_deadline():
 # Geting the package within a range
 def get_within_range():
     print("Please input the starting and ending time range below")
+    print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_first_range = input("Input the starting time range in HH:MM:SS: ")
     user_end_range = input("Input the end time range in HH:MM:SS: ")
 
