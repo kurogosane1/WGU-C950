@@ -193,7 +193,7 @@ def get_address():
     print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_time = input("Please input the time in HH:MM:SS: ")
 
-    if user_input is not "Quit" or not "q" or not "quit":
+    if user_input != "Quit" or user_input != "q" or user_input != "quit":
         for count in range(1, 41):
             first_time = getAllPackages().get_value(str(count))[9]
             (hrs, mins, secs) = first_time.split(':')
@@ -263,7 +263,7 @@ def get_by_city():
     print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_time = input("Please input the time in HH:MM:SS: ")
 
-    if user_input is not "Quit" or not "q" or not "quit":
+    if user_input != "Quit" or user_input != "q" or user_input != "quit":
         for count in range(1, 41):
             first_time = getAllPackages().get_value(str(count))[9]
             (hrs, mins, secs) = first_time.split(':')
@@ -276,8 +276,6 @@ def get_by_city():
             (hrs, mins, secs) = user_time.split(':')
             convert_user_time = datetime.timedelta(
                 hours=int(hrs), minutes=int(mins), seconds=int(secs))
-            print(
-                f' this is count {count} and line for {getAllPackages().get_value(str(count))[6]}')
             if user_input == getAllPackages().get_value(str(count))[3]:
                 if converted_first_time >= convert_user_time:
                     getAllPackages().get_value(str(count))[10] = "At Hub"
@@ -334,7 +332,7 @@ def get_by_zipcode():
     print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_time = input("Please input the time in HH:MM:SS: ")
 
-    if user_input is not "Quit" or not "q" or not "quit":
+    if user_input != "Quit" or user_input != "q" or user_input != "quit":
         for count in range(1, 41):
             first_time = getAllPackages().get_value(str(count))[9]
             (hrs, mins, secs) = first_time.split(':')
@@ -405,7 +403,7 @@ def get_by_weight():
     print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_time = input("Please input the time in HH:MM:SS: ")
 
-    if user_input is not "Quit" or not "q" or not "quit":
+    if user_input != "Quit" or user_input != "q" or user_input != "quit":
         for count in range(1, 41):
             first_time = getAllPackages().get_value(str(count))[9]
             (hrs, mins, secs) = first_time.split(':')
@@ -476,7 +474,7 @@ def get_by_deadline():
     print("If time is 'PM' then enter in 24 Hour format example 1:12pm would be 13:12:00 ")
     user_time = input("Please input deadline of the package in HH:MM:SS: ")
 
-    if user_time is not "Quit" or not "q" or not "quit":
+    if user_time != "Quit" or user_time!= "q" or user_time != "quit":
         for count in range(1, 41):
             first_time = getAllPackages().get_value(str(count))[9]
             (hrs, mins, secs) = first_time.split(':')

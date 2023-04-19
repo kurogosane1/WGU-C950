@@ -43,7 +43,6 @@ with open('./data/addressData.csv') as csvfile_2:
             (hrs, mins, secs) = i.split(':')
             total += datetime.timedelta(hours=int(hrs),
                                         minutes=int(mins), seconds=int(secs))
-            print(total)
         return total
 
     # these lists represent the sorted trucks that are put in order of efficiency in the function below
@@ -82,7 +81,7 @@ with open('./data/addressData.csv') as csvfile_2:
 
         lowest_value = 50.0
         location = 0
-        # print(_list[1][1])
+
         for i in _list:
 
             value = int(i[1])
